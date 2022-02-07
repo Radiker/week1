@@ -3,6 +3,24 @@ package com.company;
 import java.util.Arrays;
 
 public class Main {
+    public static double[][] matrixAdd(double[][] matrix1, double[][] matrix2) {
+        // WRITE CODE HERE
+        //Результатом сложения матриц A(m * n) и B(m * n) будет матрица C(m * n)
+        //Вычисление разрядности матриц
+        int m = matrix1.length;
+        int n = matrix1[0].length;
+        //объявляем результативную матрицу
+        double[][] matrix = new double[m][n];
+        //Проходимся по элементам матрицы
+        for(int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                //Суммируем значения полей
+                matrix[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        return matrix;
+    }
+
     public static double[][] matrixMultiply(double[][] matrix1, double[][] matrix2) {
         // WRITE CODE HERE
         //Результатом умножения матриц A(m * n) и B(n * k) будет матрица C(m * k)
@@ -31,6 +49,7 @@ public class Main {
         double[][] matrix1 = {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};
         double[][] matrix2 = {{3, 2, 1}, {3, 2, 1}, {3, 2, 1}};
 
+        System.out.println(Arrays.deepToString(matrixAdd(matrix1, matrix2)));
         System.out.println(Arrays.deepToString(matrixMultiply(matrix1, matrix2)));
     }
 }
